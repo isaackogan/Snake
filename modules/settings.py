@@ -42,13 +42,24 @@ snake_image = pygame.transform.scale(pygame.image.load('resource_snake_logo.png'
 checkmark_image = pygame.transform.scale(pygame.image.load('resource_checkmark.png'), (64, 64))                 # Loading checkmark Image
 space_image = pygame.transform.scale(pygame.image.load('resource_press_space.png'), (509, 209))                 # Loading "SPACE TO START" image
 timer_image = pygame.transform.scale(pygame.image.load('resource_timer.png'), (44, 44))                         # Loading the timer image
-
+replay_image = pygame.transform.scale(pygame.image.load('resource_replay.png'), (220, 90))
 
 title_font = pygame.font.SysFont('Franklin Gothic', 110)                                                        # Loading Title Font
+countdown_font = pygame.font.SysFont('Impact', 150)                                                             # Loading Title Font
 button_font = pygame.font.SysFont('Franklin Gothic', 70)                                                        # Loading Button Font
 scoreboard_font = pygame.font.SysFont('Lucidia Console', 50)                                                    # Loading Scoreboard Font
+end_screen_font = pygame.font.SysFont('Impact', 40)
+pygame.display.set_caption("Isaac's Snake Game (2020)"), pygame.display.set_icon(snake_image)                   # Setting the caption & Icon
 
-pygame.display.set_caption("  Isaac's Snake Game (2020)"), pygame.display.set_icon(snake_image)                 # Setting the caption & Icon
+pygame.mixer.music.load('resource_sound_background_music.mp3')
+pygame.mixer.music.set_volume(0.4)
+
+wall_crash_sound = pygame.mixer.Sound("resource_sound_wall_crash.wav")
+game_over_sound = pygame.mixer.Sound("resource_sound_game_over.wav")
+power_up_sound = pygame.mixer.Sound("resource_sound_power_up.wav")
+speed_up_sound = pygame.mixer.Sound('resource_sound_speed_up.wav')
+apple_eat_sound = pygame.mixer.Sound("resource_sound_apple_eat.wav")
+countdown_sound = pygame.mixer.Sound("resource_sound_321_go.wav")
 
 # Snake Settings
 
@@ -87,7 +98,7 @@ SBRD_ITEM_4_FOOD_SIZE = 32                                                      
 
 food_timer = 20                                                                                 # Setting the initial food timer value
 time_per_food = food_timer                                                                      # Assigning a variable to keep track of the initial value
-score_increase_amount = 20                                                                      # Assigning the score increase per food eaten
+score_increase_amount = 20                                                                   # Assigning the score increase per food eaten
 
 # Initial Values
 
@@ -96,8 +107,7 @@ change_to = direction                                                           
 
 score = 0                                                                                       # Setting the initial score to 0
 food = 0                                                                                        # Setting the initial food to 0
-
-snake_body = [[-100, -100], [-100, -100], [-100, -100]]                                         # Creating the initial snake body & setting its location to off the map
+game_timer = 0                                                                                  # Setting the initial game time to 0
 
 timer_colour = GREEN                                                                            # Setting the initial timer colour
 current_colour = SNAKE_START_RED_VALUE                                                          # Setting the initial snake colour
