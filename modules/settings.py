@@ -37,12 +37,12 @@ SNAKE_START_RED_VALUE = 72                          # Initial "RED" RGB Value fo
 
 # Loading Resources
 
-gradient = pygame.transform.scale(pygame.image.load('resource_gradient.png'), (FRAME_SIZE_X, FRAME_SIZE_Y))     # Loading Background Image
-snake_image = pygame.transform.scale(pygame.image.load('resource_snake_logo.png'), (325, 325))                  # Loading Snake Image
-checkmark_image = pygame.transform.scale(pygame.image.load('resource_checkmark.png'), (64, 64))                 # Loading checkmark Image
-space_image = pygame.transform.scale(pygame.image.load('resource_press_space.png'), (509, 209))                 # Loading "SPACE TO START" image
-timer_image = pygame.transform.scale(pygame.image.load('resource_timer.png'), (44, 44))                         # Loading the timer image
-replay_image = pygame.transform.scale(pygame.image.load('resource_replay.png'), (220, 90))
+gradient = pygame.transform.scale(pygame.image.load('./resources/images/resource_gradient.png'), (FRAME_SIZE_X, FRAME_SIZE_Y))     # Loading Background Image
+snake_image = pygame.transform.scale(pygame.image.load('./resources/images/resource_snake_logo.png'), (325, 325))                  # Loading Snake Image
+checkmark_image = pygame.transform.scale(pygame.image.load('./resources/images/resource_checkmark.png'), (64, 64))                 # Loading checkmark Image
+space_image = pygame.transform.scale(pygame.image.load('./resources/images/resource_press_space.png'), (509, 209))                 # Loading "SPACE TO START" image
+timer_image = pygame.transform.scale(pygame.image.load('./resources/images/resource_timer.png'), (44, 44))                         # Loading the timer image
+replay_image = pygame.transform.scale(pygame.image.load('./resources/images/resource_replay.png'), (220, 90))
 
 title_font = pygame.font.SysFont('Franklin Gothic', 110)                                                        # Loading Title Font
 countdown_font = pygame.font.SysFont('Impact', 150)                                                             # Loading Title Font
@@ -51,15 +51,15 @@ scoreboard_font = pygame.font.SysFont('Lucidia Console', 50)                    
 end_screen_font = pygame.font.SysFont('Impact', 40)
 pygame.display.set_caption("Isaac's Snake Game (2020)"), pygame.display.set_icon(snake_image)                   # Setting the caption & Icon
 
-pygame.mixer.music.load('resource_sound_background_music.mp3')
+pygame.mixer.music.load('./resources/sounds/resource_sound_background_music.mp3')
 pygame.mixer.music.set_volume(0.4)
 
-wall_crash_sound = pygame.mixer.Sound("resource_sound_wall_crash.wav")
-game_over_sound = pygame.mixer.Sound("resource_sound_game_over.wav")
-power_up_sound = pygame.mixer.Sound("resource_sound_power_up.wav")
-speed_up_sound = pygame.mixer.Sound('resource_sound_speed_up.wav')
-apple_eat_sound = pygame.mixer.Sound("resource_sound_apple_eat.wav")
-countdown_sound = pygame.mixer.Sound("resource_sound_321_go.wav")
+wall_crash_sound = pygame.mixer.Sound("./resources/sounds/resource_sound_wall_crash.wav")
+game_over_sound = pygame.mixer.Sound("./resources/sounds/resource_sound_game_over.wav")
+power_up_sound = pygame.mixer.Sound("./resources/sounds/resource_sound_power_up.wav")
+speed_up_sound = pygame.mixer.Sound('./resources/sounds/resource_sound_speed_up.wav')
+apple_eat_sound = pygame.mixer.Sound("./resources/sounds/resource_sound_apple_eat.wav")
+countdown_sound = pygame.mixer.Sound("./resources/sounds/resource_sound_321_go.wav")
 
 # Snake Settings
 
@@ -98,7 +98,8 @@ SBRD_ITEM_4_FOOD_SIZE = 32                                                      
 
 food_timer = 20                                                                                 # Setting the initial food timer value
 time_per_food = food_timer                                                                      # Assigning a variable to keep track of the initial value
-score_increase_amount = 20                                                                   # Assigning the score increase per food eaten
+score_increase_amount = 20                                                                      # Assigning the score increase per food eaten
+power_up_time = 2
 
 # Initial Values
 
@@ -121,3 +122,11 @@ fps_controller = pygame.time.Clock()                                            
 pygame.time.set_timer(pygame.USEREVENT, 10)                                                     # Initializing the timer
 
 difficulty = 'medium'                                                                           # Setting the default difficulty
+PPT, TILES = 32, 20
+speed = 6                                                                                       # Setting the default speed
+snake_speed_limit, snake_speed_increase_interval, snake_speed_increase_amount = 10, 10, 1       # Setting the default speed limit, increase interval & amount
+walls = 10                                                                                      # Setting the default # of walls
+hs_range = 0                                                                                    # Initializing hs_range for end screen calculations
+
+difficulty_text_width, difficulty_text_height = scoreboard_font.size(difficulty.capitalize())           # Setting the default difficulty text w/h
+difficulty_colour, difficulty_offset = YELLOW, ((SBRD_ITEM_WIDTH / 2) - (difficulty_text_width / 2))    # Calculating the default offset & colour of difficulty

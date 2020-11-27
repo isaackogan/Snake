@@ -4,7 +4,7 @@ from pygame import *
 def rounded_rectangle(r_surface, r_rect, r_colour, r_radius=0.6):  # A simple function to create a rounded rectangle
     """Creates a rounded rectangle on a given surface.
 
-    :param r_surface: The surface in which the rounded rectangle will be drawin on
+    :param r_surface: The surface in which the rounded rectangle will be drawing on
     :param r_rect: The rectangle's information such as x-coordinate, y-coordinate width, height in a tuple
     :param r_colour: The RGB (or RGBA) colour
     :param r_radius: The curve of the rectangle
@@ -22,7 +22,7 @@ def rounded_rectangle(r_surface, r_rect, r_colour, r_radius=0.6):  # A simple fu
 
     # Calculations
     circle = Surface([min(r_rect.size) * 3] * 2, SRCALPHA)  # Calculating circle
-    draw.ellipse(circle, (0, 0, 0), circle.get_rect(), 0)   # Calculating elipse
+    draw.ellipse(circle, (0, 0, 0), circle.get_rect(), 0)   # Calculating ellipse
     circle = transform.smoothscale(circle, [int(min(r_rect.size) * r_radius)] * 2)  # Calculating transformations w/ the circle to create rounded edges
 
     # Blitting
