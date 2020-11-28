@@ -1,8 +1,4 @@
-"""
-Snake Game
-by Your Favourite Student, even more than Josh (Josh kinda sucks), Isaac Aaron Kogan
-Birthdate: 4/20/2004
-"""
+# SNAKE GAME | ISAAC KOGAN | COMPLETED 11/27/2020 @ 2:18AM | GITHUB.COM/ISAACKOGAN/SNAKE
 
 import os, random, sys, time
 from modules.draw_game_board import draw_game_board
@@ -10,10 +6,9 @@ from modules.rounded_rectangles import rounded_rectangle
 from modules.parse_time import parse_time
 from modules.settings import *
 
-
 # Removing any old end game screen files (cleaning up shop)
-try: os.remove("resource_end_game_screen.png")
-except FileNotFoundError: pass
+try: os.remove("resource_end_game_screen.png")  # Removing the file
+except FileNotFoundError: pass  # Ignoring if there isn't a file to remove
 
 # Main Process Loop (Allows for playing the game again when you die)
 
@@ -204,8 +199,7 @@ while True:
         for event in pygame.event.get():
 
             # IF THEY CLICK THE QUIT BUTTON
-            if event.type == pygame.QUIT:
-                pygame.quit(), sys.exit()
+            if event.type == pygame.QUIT: pygame.quit(), sys.exit()
 
             # IF THEY CLICK A KEY (DIRECTION HANDLING)
             if event.type == pygame.KEYDOWN:
@@ -262,8 +256,7 @@ while True:
                 if not found: break  # Breaking if it isn't in the snake's body
 
         # If the snake did NOT eat a piece of food, pop the snake body (THIS IS VERY IMPORTANT, IT'S WHAT CAUSES THE END OF THE SNAKE SEGMENTS TO DISAPPEAR)
-        else:
-            snake_body.pop()
+        else: snake_body.pop()
 
         # Collision Checks (Must be done pre-graphic rendering to prevent the snake from 'exiting' the map on the screen if it goes out of bounds, hits a well, etc.)
 
@@ -390,8 +383,7 @@ while True:
 
         # After 1 frame, start the Intro
 
-        if intro is None:
-            intro = "run"  # "run" is the parameter the 'intro' if statement earlier in the code looks for to run the intro
+        if intro is None: intro = "run"  # "run" is the parameter the 'intro' if statement earlier in the code looks for to run the intro
 
         # Final Display Updates
 
@@ -437,13 +429,12 @@ while True:
                 high_scores[idx] = str(i)
 
             # WRITING TO FILE
-            file = open("resources/resource_high_score.txt", "w")      # Open the file in write mode
+            file = open("resources/resource_high_score.txt", "w")       # Open the file in write mode
             file.write(":".join(high_scores) + ":")                     # Join the list into raw data, write it to the file
             file.close()                                                # Close the file
 
             new_or_not = "NEW!"                                         # Tell the scoreboard you got a new high score
-        else:
-            new_or_not = ""                                             # Display nothing in that spot if you didn't get a new high score
+        else: new_or_not = ""                                           # Display nothing in that spot if you didn't get a new high score
 
     # End Menu Loop
 

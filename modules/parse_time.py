@@ -1,5 +1,4 @@
-# Python Program to Convert seconds
-# into hours, minutes and seconds
+# PARSE TIME FUNCTION | PARSE TIME INTO "00:00:00" FORMAT | ISAAC KOGAN
 
 def parse_time(seconds):
     """

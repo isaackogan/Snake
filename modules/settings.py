@@ -1,3 +1,5 @@
+# SETTINGS FILE | DIFFERENT GAME SETTINGS | ISAAC KOGAN
+
 import pygame
 
 # Loading Display
@@ -51,15 +53,15 @@ scoreboard_font = pygame.font.SysFont('Lucidia Console', 50)                    
 end_screen_font = pygame.font.SysFont('Impact', 40)
 pygame.display.set_caption("Isaac's Snake Game (2020)"), pygame.display.set_icon(snake_image)                   # Setting the caption & Icon
 
-pygame.mixer.music.load('./resources/sounds/resource_sound_background_music.mp3')
-pygame.mixer.music.set_volume(0.4)
+pygame.mixer.music.load('./resources/sounds/resource_sound_background_music.mp3')                               # Loading the background music
+pygame.mixer.music.set_volume(0.4)                                                                              # Setting the background music volume
 
-wall_crash_sound = pygame.mixer.Sound("./resources/sounds/resource_sound_wall_crash.wav")
-game_over_sound = pygame.mixer.Sound("./resources/sounds/resource_sound_game_over.wav")
-power_up_sound = pygame.mixer.Sound("./resources/sounds/resource_sound_power_up.wav")
-speed_up_sound = pygame.mixer.Sound('./resources/sounds/resource_sound_speed_up.wav')
-apple_eat_sound = pygame.mixer.Sound("./resources/sounds/resource_sound_apple_eat.wav")
-countdown_sound = pygame.mixer.Sound("./resources/sounds/resource_sound_321_go.wav")
+wall_crash_sound = pygame.mixer.Sound("./resources/sounds/resource_sound_wall_crash.wav")                       # Loading the crash sound
+game_over_sound = pygame.mixer.Sound("./resources/sounds/resource_sound_game_over.wav")                         # Loading the game over sound
+power_up_sound = pygame.mixer.Sound("./resources/sounds/resource_sound_power_up.wav")                           # Loading the power up sound
+speed_up_sound = pygame.mixer.Sound('./resources/sounds/resource_sound_speed_up.wav')                           # Loading the speed up sound
+apple_eat_sound = pygame.mixer.Sound("./resources/sounds/resource_sound_apple_eat.wav")                         # Loading the apple eat sound
+countdown_sound = pygame.mixer.Sound("./resources/sounds/resource_sound_321_go.wav")                            # Loading the countdown sound
 
 # Snake Settings
 
@@ -68,8 +70,8 @@ snake_colour = SNAKE_COLOUR_HEAD                                                
 
 # Game Board Settings
 
-PPT = 16                                                                                        # Setting the "pixels per tile" value
-TILES = 40                                                                                      # Setting the default "tiles per game board" value
+PPT = 32                                                                                         # Setting the default "pixels per tile" value
+TILES = 20                                                                                      # Setting the default "tiles per game board" value
 
 GBRD_START_X = FRAME_SIZE_X // 2 - (PPT * TILES // 2)                                           # Calculating the game board's start position (centering it on the screen)
 GBRD_START_Y = 180                                                                              # Setting the Y position of the game board
@@ -122,7 +124,6 @@ fps_controller = pygame.time.Clock()                                            
 pygame.time.set_timer(pygame.USEREVENT, 10)                                                     # Initializing the timer
 
 difficulty = 'medium'                                                                           # Setting the default difficulty
-PPT, TILES = 32, 20
 speed = 6                                                                                       # Setting the default speed
 snake_speed_limit, snake_speed_increase_interval, snake_speed_increase_amount = 10, 10, 1       # Setting the default speed limit, increase interval & amount
 walls = 10                                                                                      # Setting the default # of walls
