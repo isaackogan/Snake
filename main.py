@@ -46,7 +46,7 @@ while True:
                         difficulty = 'easy'  # Setting difficulty
                         difficulty_text_width, difficulty_text_height = scoreboard_font.size(difficulty.capitalize())  # Calculating difficulty text width, length
                         difficulty_colour, difficulty_offset = GREEN, ((SBRD_ITEM_WIDTH / 2) - (difficulty_text_width / 2))  # Setting difficulty-based colouring & text offsets
-                        PPT, TILES, speed, snake_speed_limit, snake_speed_increase_interval, snake_speed_increase_amount, walls = 16, 40, 6, 15, 5, 1, 40  # Setting difficulty-based values
+                        PPT, TILES, speed, snake_speed_limit, snake_speed_increase_interval, snake_speed_increase_amount, walls = 16, 40, 10, 15, 5, 1, 40  # Setting difficulty-based values
 
                 # MEDIUM DIFFICULTY
                 if (500 <= mouse[0] <= 750) and (690 <= mouse[1] <= 782):
